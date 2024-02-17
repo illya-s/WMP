@@ -1,0 +1,89 @@
+.ministry_block {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.description {
+	display: flex;
+	width: fit-content;
+	padding: 15px;
+	border-radius: 10px;
+	background: var(--bl-color);
+	font-size: var(--fz-3);
+	align-items: center;
+	justify-content: center;
+}
+
+.block_tabs {
+	display: flex;
+	flex-direction: row;
+}
+
+.tab-content {
+	display: none;
+	flex-direction: column;
+	font-size: var(--fz-3);
+}
+.song {
+	margin: 0 0 10px 0;
+	padding: 10px 15px;
+	border-radius: 10px;
+	background: var(--bl-color);
+	text-decoration: none;
+	color: #fff;
+	-webkit-user-select: none;
+	user-select: none;
+} .song:hover {
+	background: #777;
+}
+.user {
+	margin: 5px;
+	padding: 10px 15px;
+	border-radius: 10px;
+	background: var(--bl-color);
+	text-decoration: none;
+	color: #fff;
+}
+
+.tab-content:target {
+	display: flex;
+}
+
+.tab_list {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	flex-wrap: wrap;
+	order: -1;
+	margin: 0 15px 0 0;
+}
+
+.tab-link {
+	display: block;
+	padding: 0.5rem 1rem;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+	text-decoration: none;
+	color: #fff;
+	font-size: var(--fz-2);
+	border: 0;
+	border-radius: 0.375rem;
+	text-transform: uppercase;
+	background: 0 0;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#content-1:target ~ .tab_list > [href="#content-1"],
+#content-2:target ~ .tab_list > [href="#content-2"],
+#content-3:target ~ .tab_list > [href="#content-3"] {
+	cursor: default;
+	color: #fff;
+	background-color: var(--bl-color);
+}
+
+@media screen and (max-width: 720px) {
+	.description {
+			width: 100%;
+	}
+}

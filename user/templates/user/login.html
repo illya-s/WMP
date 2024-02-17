@@ -1,0 +1,18 @@
+{% extends "index/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<form method="POST" novalidate>
+	{% csrf_token %}
+	<h3>Авторизуватися</h3>
+	{{ form.as_p }}
+	<div class="bottom">
+		<button type="submit">Увійти</button>
+		<a class="url" href="{% url 'register' %}">Зареєструватись</a>
+	</div>
+</form>
+{% endblock %}

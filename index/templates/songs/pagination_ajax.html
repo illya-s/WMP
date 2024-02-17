@@ -1,0 +1,9 @@
+{% if songs.has_previous %}
+	<button class="page-link" data-page="1">&laquo;</button>
+	<button class="page-link" data-page="{{ songs.previous_page_number }}">&lsaquo;</button>
+{% endif %}
+<span class="current">{{ songs.number }} / {{ songs.paginator.num_pages }}</span>
+{% if songs.has_next %}
+	<button class="page-link" data-page="{{ songs.next_page_number }}">&rsaquo;</button>
+	<button class="page-link" data-page="{{ songs.paginator.num_pages }}">&raquo;</button>
+{% endif %}

@@ -1,0 +1,33 @@
+{% extends "index/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="container">
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.errors }}
+		<div class="horisontal">
+			{{ form.name }}
+			{{ form.media }}
+		</div>
+		<div class="types">
+			{{ form.key }}
+			{{ form.bpm }}
+			{{ form.tse }}
+		</div>
+		<div class="horisontal">
+			{{ form.text }}
+			{{ form.structure }}
+		</div>
+		<div class="submits">
+			<input class="_link" type="submit" value="Зберегти зміни" class="default" name="_save">
+			<input class="_link" type="submit" value="Зберегти і додати інше" name="_addanother">
+			<input class="_link" type="submit" value="Зберегти і продовжити редагування" name="_continue">
+		</div>
+	</form>
+</section>
+{% endblock %}

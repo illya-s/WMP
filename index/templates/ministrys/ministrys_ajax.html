@@ -1,0 +1,14 @@
+{% load static %}
+
+{% for ministry in ministrys %}
+<div class='ministry_cont'>
+    <a class="ministry _link" href="{% url 'ministry' ministry.id %}#content-1">
+        <p>{{ ministry.name }} -&nbsp;{{ ministry.time }}</p>
+        <p class="song_center">{{ ministry.date }}</p>
+    </a>
+    {% if has_permission %}
+    <a class="edit_ministry _link" href="{% url 'edit_ministry' ministry.id %}"><img src="{% static 'img/edit.png' %}"></a>
+    <a class="edit_ministry _link" href="{% url 'delete_ministry' ministry.id %}" onclick="return confirmDelete();"><img src="{% static 'img/trash.png' %}"></a>
+    {% endif %}
+</div>
+{% endfor %}

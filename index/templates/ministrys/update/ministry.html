@@ -1,0 +1,35 @@
+{% extends "index/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="container">
+	<form id="Form" method="post">
+		{% csrf_token %}
+		{{ form.errors }}
+		<div class="top">
+			{{ form.date }}
+			{{ form.time }}
+			{{ form.name }}
+			{{ form.type }}
+		</div>
+		<div class="horisontal">
+			{{ form.description }}
+			{{ form.bible_passage }}
+			{{ form.songs }}
+			{{ form.invited_user }}
+		</div>
+		<div class="submits">
+			<button id="submit" name="_save">Зберегти зміни</button>
+			<button id="submit" name="_addanother">Зберегти і додати інше</button>
+		</div>
+	</form>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/form.js' %}"></script>
+{% endblock %}

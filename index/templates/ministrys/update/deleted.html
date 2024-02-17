@@ -1,0 +1,12 @@
+{% extends "index/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="container">
+	<h2>Служение <b>{{ ministry.name }} - {{ ministry.date }}</b> удалено!</h2>
+</section>
+{% endblock %}

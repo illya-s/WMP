@@ -1,0 +1,45 @@
+{% extends "index/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/ministrys.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="container">
+    {% if perms.ministrys.can_edit %}
+        <style>
+            .ministry_cont {
+                grid-template-columns: auto 60px 60px;
+            }
+            @media screen and (max-width: 720px) {
+                .ministry_cont {grid-template-columns: auto 50px 50px;}
+            }
+        </style>
+    {% else %}
+        <style>
+            .ministry_cont {grid-template-columns: auto;}
+        </style>
+    {% endif %}
+
+    <div class="ministry_switch">
+        <button id="switch_btn">Прошедшие</button>
+    </div>
+    <div class="ministry_cont">
+        <div class="ministry_type">
+            <p>Название</p>
+            <p class="song_center">Дата</p>
+        </div>
+        {% if perms.ministrys.can_edit %}
+        <a class="edit_ministry _link" href="{% url 'upload_ministry' %}"><img src="{% static 'img/add.png' %}"></a>
+        {% endif %}
+    </div>
+    <div id="ministrys">
+        {% include 'ministrys/ministrys_ajax.html' %}
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

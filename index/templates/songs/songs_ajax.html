@@ -1,0 +1,18 @@
+{% load static %}
+
+{% for song in songs %}
+<div class='song_cont'>
+	<a class="song" href="{% url 'song' song.id %}">
+		<div>
+			<p>{{ song.name }}</p>
+			<p class="song_user">{{ song.user }}</p>
+		</div>
+		<p class="song_center">{{ song.key }}</p>
+		<p class="song_center">{{ song.bpm }}</p>
+	</a>
+	{% if has_permission %}
+	<a class="edit_song" href="{% url 'edit_song' song.id %}"><img src="{% static 'img/edit.png' %}"></a>
+	<a class="edit_song" href="{% url 'delete_song' song.id %}"><img src="{% static 'img/trash.png' %}"></a>
+	{% endif %}
+</div>
+{% endfor %}

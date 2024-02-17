@@ -1,0 +1,72 @@
+.ministry_switch {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+#switch_btn {
+    padding: 7px 15px;
+    border: none;
+    border-radius: 10px;
+    background: var(--bl-color);
+    text-decoration: none;
+} #switch_btn:hover {
+    background: #555;
+}
+
+#nofilter, #filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ministry_cont {
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    align-items: center;
+}
+
+.ministry, .ministry_type {
+    width: 100%;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-gap: 10%;
+    border-radius: 10px;
+    background: var(--bl-color);
+    font-size: var(--fz-3);
+    color: var(--hd-text);
+    text-decoration: none;
+    align-items: center;
+} .ministry:hover {
+    background: #555;
+} .song_user{
+    color: #c5c5c5;
+    font-size: var(--fz-4);
+} .song_center {
+    text-align: center;
+} .song_right {
+    text-align: right;
+}
+
+.edit_ministry {
+    display: flex;
+    width: auto;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    background: var(--bl-color);
+} .edit_ministry:hover {
+    background: #777;
+}
+
+@media screen and (max-width: 720px) {
+    section {
+        padding: 0;
+    }
+    #switch_btn:hover, .ministry:hover, .edit_ministry:hover {
+        background: var(--bl-color);
+    }
+}

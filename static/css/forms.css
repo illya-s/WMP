@@ -1,0 +1,78 @@
+form {
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin: 20px 0;
+	align-items: center;
+	justify-content: center;
+}
+
+.top {
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto 35% auto;
+	gap: 15px;
+}
+
+input[type="text"], input[type="url"], input[type="number"], select, textarea, input[type="submit"] {
+	width: 100%;
+	padding: 7px 15px;
+	border-radius: 10px;
+	background: var(--bl-color);
+	border: none;
+	outline: none;
+	color: #fff;
+	font-size: var(--fz-3);
+}
+#submit {
+	width: fit-content;
+	padding: 7px 15px;
+	border-radius: 10px;
+	background: var(--bl-color);
+	border: none;
+	outline: none;
+	color: #fff;
+	font-size: var(--fz-3);
+}
+
+.horisontal {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+}
+.types {
+	display: flex;
+	gap: 15px;
+}
+#id_key {
+	width: fit-content;
+}
+#id_bpm, #id_tse {
+	width: 150px;
+}
+#id_text, #id_structure {
+	height: 450px;
+	overflow: auto;
+}
+
+#id_structure {
+	max-width: 250px;
+}
+
+#id_invited_user, #id_program {
+	overflow: auto;
+}
+
+.submits {
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+}
+input[type="submit"] {
+	width: auto;
+} input[type="submit"]:hover {
+	background: #777;
+}

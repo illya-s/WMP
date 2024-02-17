@@ -1,0 +1,37 @@
+{% extends "index/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/song_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="container">
+    <section class="song">
+        <section class="song_info">
+            <div>
+                <p>{{ song.name }}</p>
+                <p>{{ song.user }}</p>
+                <div data-key="{{ song.key }}" id="select"></div>
+            </div>
+            <div>
+                <p>Темп:&nbsp;{{ song.bpm }}</p>
+                <p>Размер&nbsp;Такта:&nbsp;{{ song.tse }}</p>
+                Медиа:&nbsp;<a class="song_url" target="_blank" href="{{ song.media }}">YouTube</a>
+                <p>{{ song.updated }}</p>
+            </div>
+            <div><pre class="info_structure">{{ song.structure }}</pre></div>
+        </section>
+        <section class="song_text">
+            <pre class="song_block" data-text="{{ song.text }}" id="song_block"></pre>
+            {% if song.structure %}
+            <pre class="song_structure">{{ song.structure }}</pre>
+            {% endif %}
+        </section>
+    </section>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/song.js' %}"></script>
+{% endblock %}

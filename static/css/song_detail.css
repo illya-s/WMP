@@ -1,0 +1,108 @@
+.song {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.song_info, .song_structure {
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
+    background: var(--bl-color);
+    color: #FFF;
+    align-items: start;
+    justify-content: center;
+}
+#key {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    color: var(--tx-color);
+    cursor: pointer;
+    text-transform: none;
+    font-size: 14px;
+    height: 31px;
+    outline: 0;
+    padding: 0 14px 0 15px;
+    word-wrap: normal;
+}
+.song_url {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #FF0000;
+}
+.info_structure {
+    font-size: var(--fz-2);
+}
+
+.song_text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.song_block {
+    margin: 0;
+    width: 100%;
+    height: fit-content;
+    column-count: 2;
+    gap: 10px;
+}
+.block {
+    width: 100%;
+    height: fit-content;
+    margin: 10px 0 0 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: var(--bl-color);
+    color: #FFF;
+    align-items: start;
+    justify-content: center;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+}
+.block_type {
+    text-transform: uppercase;
+}
+.block_text {
+    font-size: var(--fz-3);
+    white-space: pre-wrap;
+}
+
+.song_structure {
+    align-self: center;
+    display: none;
+    margin: 10px 0;
+    font-size: var(--fz-2);
+    font-weight: bold;
+    white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 1300px) {
+    .song_block {
+        column-count: 1;
+    }
+    .song {
+        flex-direction: column;
+    }
+    .song_info {
+        width: 100%;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+    }
+    .info_structure {
+        display: none;
+    }
+    .song_structure {
+        display: flex;
+    }
+}

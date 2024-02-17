@@ -1,0 +1,44 @@
+{% extends "index/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/ministry_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="container">
+    <link rel="stylesheet" href="{% static 'css/ministry_detail.css' %}">
+
+    <section class="ministry_block">
+        <section class="block_info">
+            <div>
+                <p class="description">{{ ministry.description|linebreaksbr }}</p>
+            </div>
+        </section>
+        <section class="block_tabs">
+            <div class="tab-content" id="content-1">
+                {% for song in songs %}
+                <a class="song _link" href="{% url 'song' song.songs.id %}">{{ song.songs.name }}</a>
+                {% endfor %}
+            </div>
+            {% if ministry.bible_passage %}
+            <div class="tab-content description" id="content-2">
+                {{ ministry.bible_passage|linebreaksbr }}
+            </div>
+            {% endif %}
+            <div class="tab-content" id="content-3">
+                {% for user in ministry.invited_user.all %}
+                <p class="user">{{ user.username }}</p>
+                {% endfor %}
+            </div>
+            <div class="tab_list">
+                <a class="tab-link" href="#content-1">Песни</a>
+                {% if ministry.bible_passage %}
+                <a class="tab-link" href="#content-2">Места писания</a>
+                {% endif %}
+                <a class="tab-link" href="#content-3">Люди</a>
+            </div>
+        </section>
+    </section>
+</section>
+{% endblock %}

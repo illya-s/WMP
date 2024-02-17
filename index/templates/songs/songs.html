@@ -1,0 +1,48 @@
+{% extends "index/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/songs.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="container">
+    {% if has_permission %}
+        <style>
+            .song_cont {
+                display: grid;
+                grid-template-columns: auto 65px 65px;
+                grid-template-rows: 65px;
+                gap: 10px;
+            }
+        </style>
+        {% else %}
+        <style>
+            .song_cont {
+                display: grid;
+                grid-template-columns: auto;
+            }
+        </style>
+    {% endif %}
+    <input type="search" id="searchInput" placeholder="Search">
+    <div class='song_cont'>
+        <div class="song_type">
+            <p>Название</p>
+            <p class="song_center">Тон.</p>
+            <p class="song_center">Темп</p>
+        </div>
+        <a class="edit_song" href="{% url 'upload_song' %}"><img src="{% static 'img/add.png' %}"></a>
+    </div>
+    <div id="song_list">
+        {% include 'songs/songs_ajax.html' %}
+    </div>
+    <div id="pagination">
+        {% include 'songs/pagination_ajax.html' %}
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/song.js' %}"></script>
+{% endblock %}
